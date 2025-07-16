@@ -1,0 +1,10 @@
+.env
+/AUTHENTICATION_ROUTES.md
+/GMAIL_OAUTH2_SETUP.md
+*.mp4
+*.zip
+*.exe
+node_modules/
+dist/
+.env
+uploads/

@@ -1,0 +1,204 @@
+{"level":"info","message":"Attempting to connect to MongoDB with URI: MONGODB_URI=mongodb://127.0.0.1:27017/runacoss-website-db","timestamp":"2025-07-11 16:52:09"}
+{"level":"info","message":"Sanitized URI: mongodb://127.0.0.1:27017/runacoss-website-db","timestamp":"2025-07-11 16:52:09"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 16:52:09"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 16:52:09"}
+{"level":"info","message":"Shutting down gracefully...","timestamp":"2025-07-11 16:52:20"}
+{"level":"info","message":"Attempting to connect to MongoDB with URI: MONGODB_URI=mongodb://127.0.0.1:27017/runacoss-website-db","timestamp":"2025-07-11 16:52:30"}
+{"level":"info","message":"Sanitized URI: mongodb://127.0.0.1:27017/runacoss-website-db","timestamp":"2025-07-11 16:52:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 16:52:30"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 16:52:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 16:57:44"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 16:57:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 16:57:52"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 16:57:52"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:05:27"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 17:05:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:05:58"}
+{"level":"info","message":"🚀 Server is running at http://localhost:3001","timestamp":"2025-07-11 17:05:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:06:36"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:06:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:07:09"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:07:09"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:08:50"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:08:50"}
+{"level":"info","message":"📨 GET /api/v1/auth/login","timestamp":"2025-07-11 17:09:28"}
+{"level":"error","message":"❌ 404 Not Found: GET /api/v1/auth/login","timestamp":"2025-07-11 17:09:28"}
+{"level":"info","message":"📨 GET /favicon.ico","timestamp":"2025-07-11 17:09:33"}
+{"level":"error","message":"❌ 404 Not Found: GET /favicon.ico","timestamp":"2025-07-11 17:09:33"}
+{"level":"info","message":"📨 POST /user","timestamp":"2025-07-11 17:11:45"}
+{"level":"error","message":"❌ 404 Not Found: POST /user","timestamp":"2025-07-11 17:11:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:13:04"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:13:04"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:13:32"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:13:32"}
+{"level":"info","message":"📨 POST /user","timestamp":"2025-07-11 17:13:51"}
+{"level":"error","message":"❌ 404 Not Found: POST /user","timestamp":"2025-07-11 17:13:51"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 17:14:53"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/register","timestamp":"2025-07-11 17:14:53"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:03"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:03"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:27"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:27"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:58"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/register","timestamp":"2025-07-11 17:15:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:24:35"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:24:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:25:13"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:25:13"}
+{"level":"info","message":"📨 POST /api/v1/user","timestamp":"2025-07-11 17:27:10"}
+{"level":"info","message":"👤 Create User Request: POST /","timestamp":"2025-07-11 17:27:10"}
+{"config":{"body":"<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.","data":"<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.","headers":{"Content-Type":"application/x-www-form-urlencoded","User-Agent":"google-api-nodejs-client/9.15.1","x-goog-api-client":"gl-node/22.17.0"},"method":"POST","responseType":"unknown","retry":true,"retryConfig":{"currentRetryAttempt":0,"httpMethodsToRetry":["GET","PUT","POST","HEAD","OPTIONS","DELETE"],"maxRetryDelay":9007199254740991,"noResponseRetries":2,"retry":3,"retryDelayMultiplier":2,"statusCodesToRetry":[[100,199],[408,408],[429,429],[500,599]],"timeOfFirstRequest":1752251231609,"totalTimeout":9007199254740991},"url":"https://oauth2.googleapis.com/token"},"level":"error","message":"Create User Error: invalid_grant","response":{"config":{"body":"<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.","data":"<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.","headers":{"Content-Type":"application/x-www-form-urlencoded","User-Agent":"google-api-nodejs-client/9.15.1","x-goog-api-client":"gl-node/22.17.0"},"method":"POST","responseType":"unknown","retry":true,"retryConfig":{"httpMethodsToRetry":["GET","PUT","POST","HEAD","OPTIONS","DELETE"]},"url":"https://oauth2.googleapis.com/token"},"data":{"error":"invalid_grant","error_description":"Bad Request"},"headers":{"alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-encoding":"gzip","content-type":"application/json; charset=utf-8","date":"Fri, 11 Jul 2025 16:27:59 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","server":"scaffolding on HTTPServer2","transfer-encoding":"chunked","vary":"Origin, X-Origin, Referer","x-content-type-options":"nosniff","x-frame-options":"SAMEORIGIN","x-xss-protection":"0"},"request":{"responseURL":"https://oauth2.googleapis.com/token"},"status":400,"statusText":"Bad Request"},"stack":"Error: invalid_grant\n    at Gaxios._request (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\gaxios\\build\\src\\gaxios.js:142:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async OAuth2Client.refreshTokenNoCache (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\google-auth-library\\build\\src\\auth\\oauth2client.js:212:19)\n    at async OAuth2Client.refreshAccessTokenAsync (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\google-auth-library\\build\\src\\auth\\oauth2client.js:247:19)\n    at async OAuth2Client.getAccessTokenAsync (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\google-auth-library\\build\\src\\auth\\oauth2client.js:276:23)\n    at async createTransporter (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\helpers\\smtpTransport.js:9:23)\n    at async createNewUser (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\controllers\\userController.js:41:25)","status":400,"timestamp":"2025-07-11 17:27:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 17:28:55"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 17:28:55"}
+{"level":"info","message":"📨 POST /api/v1/user","timestamp":"2025-07-11 17:29:05"}
+{"level":"info","message":"👤 Create User Request: POST /","timestamp":"2025-07-11 17:29:05"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 18:55:35"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 18:55:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:04:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:06:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:06:42"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:06:50"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:06:50"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:07:39"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:07:39"}
+{"level":"info","message":"(DEV MODE) Verification link: http://localhost:5173/verify?token=774676","timestamp":"2025-07-11 19:07:39"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:11:36"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:11:36"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:13:08"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:13:08"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:14:23"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:14:23"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:15:06"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:15:06"}
+{"level":"info","message":"(DEV MODE) Verification link: http://localhost:5173/verify?token=393857","timestamp":"2025-07-11 19:15:06"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:15:32"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:15:32"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:16:54"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:16:55"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:16:55"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:17:09"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:17:09"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:17:21"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:17:21"}
+{"level":"info","message":"(DEV MODE) Verification link: http://localhost:5173/verify?token=636056","timestamp":"2025-07-11 19:17:21"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:17:35"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:17:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:24:05"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:24:05"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:24:38"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:24:38"}
+{"level":"info","message":"(DEV MODE) Verification link: http://localhost:5173/verify?token=123999","timestamp":"2025-07-11 19:24:38"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:27:18"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:27:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:27:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:27:31"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:27:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:27:31"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:28:23"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:28:23"}
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","message":"Email sending failed: Invalid login: 535 Authentication failed","response":"535 Authentication failed","responseCode":535,"stack":"Error: Invalid login: 535 Authentication failed\n    at SMTPConnection._formatError (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:809:19)\n    at SMTPConnection._actionAUTHComplete (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1588:34)\n    at SMTPConnection.<anonymous> (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:556:26)\n    at SMTPConnection._processResponse (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:993:20)\n    at SMTPConnection._onData (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:774:14)\n    at SMTPConnection._onSocketData (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:195:44)\n    at TLSSocket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)","timestamp":"2025-07-11 19:28:31"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:29:08"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:29:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:33:00"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:33:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:33:01"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:36:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:40:21"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:40:21"}
+{"level":"info","message":"📨 POST /api/v1/auth/register","timestamp":"2025-07-11 19:40:30"}
+{"level":"info","message":"🔐 Auth Register Request: POST /register","timestamp":"2025-07-11 19:40:30"}
+{"level":"info","message":"✅ Verification email sent to: olaisraeliri@gmail.com","timestamp":"2025-07-11 19:40:44"}
+{"level":"info","message":"📨 PUT /api/v1/user/verify","timestamp":"2025-07-11 19:41:58"}
+{"level":"info","message":"👤 Verify User Request: PUT /verify","timestamp":"2025-07-11 19:41:58"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 19:44:27"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 19:44:27"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 19:44:51"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 19:44:51"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 19:44:59"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 19:44:59"}
+{"level":"info","message":"📨 GET /api/v1/auth/logout","timestamp":"2025-07-11 19:46:46"}
+{"level":"info","message":"🔐 Auth Logout Request: GET /logout","timestamp":"2025-07-11 19:46:47"}
+{"level":"error","message":"Logout error: Cannot destructure property 'refreshToken' of 'req.body' as it is undefined.","stack":"TypeError: Cannot destructure property 'refreshToken' of 'req.body' as it is undefined.\n    at logoutUser (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\controllers\\authController.js:88:13)\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\routes\\authRoutes.js:26:3\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at requireSignIn (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\middleware\\requireSignIn.js:20:5)\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:117:3)","timestamp":"2025-07-11 19:46:47"}
+{"level":"info","message":"📨 GET /api/v1/auth/logout","timestamp":"2025-07-11 19:47:30"}
+{"level":"info","message":"🔐 Auth Logout Request: GET /logout","timestamp":"2025-07-11 19:47:30"}
+{"level":"error","message":"Logout error: Cannot destructure property 'refreshToken' of 'req.body' as it is undefined.","stack":"TypeError: Cannot destructure property 'refreshToken' of 'req.body' as it is undefined.\n    at logoutUser (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\controllers\\authController.js:88:13)\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\routes\\authRoutes.js:26:3\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at requireSignIn (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\src\\middleware\\requireSignIn.js:20:5)\n    at Layer.handleRequest (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\router\\lib\\route.js:117:3)","timestamp":"2025-07-11 19:47:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:50:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:50:57"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:50:57"}
+{"level":"error","message":"❌ Error: Unexpected token 'B', \"Body: {\r\n \"... is not valid JSON","timestamp":"2025-07-11 19:51:54"}
+{"level":"error","message":"SyntaxError: Unexpected token 'B', \"Body: {\r\n \"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\body-parser\\lib\\types\\json.js:156:10)\n    at parse (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\body-parser\\lib\\types\\json.js:71:15)\n    at C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\body-parser\\lib\\read.js:123:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at invokeCallback (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\HP\\Desktop\\runacoss-website\\backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:518:28)\n    at endReadableNT (node:internal/streams/readable:1698:12)","timestamp":"2025-07-11 19:51:54"}
+{"level":"info","message":"📨 POST /api/v1/auth/logout","timestamp":"2025-07-11 19:52:06"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/logout","timestamp":"2025-07-11 19:52:06"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 19:53:44"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 19:53:44"}
+{"level":"info","message":"📨 POST /api/v1/auth/logout","timestamp":"2025-07-11 19:54:20"}
+{"level":"error","message":"❌ 404 Not Found: POST /api/v1/auth/logout","timestamp":"2025-07-11 19:54:20"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 19:56:05"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 19:56:05"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 19:57:38"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 19:57:38"}
+{"level":"info","message":"📨 POST /api/v1/auth/logout","timestamp":"2025-07-11 19:57:55"}
+{"level":"info","message":"🔐 Auth Logout Request: POST /logout","timestamp":"2025-07-11 19:57:55"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 20:04:38"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 20:04:38"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:04:50"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:04:50"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 20:05:05"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 20:05:05"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:05:17"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:05:17"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 20:06:59"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 20:06:59"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:07:54"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:07:54"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 20:09:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 20:09:28"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 20:09:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 20:10:15"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 20:12:08"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 20:12:08"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 20:12:20"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 20:12:20"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:12:46"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:12:46"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 20:14:05"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 20:14:05"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:14:17"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:14:17"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:15:22"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:15:22"}
+{"level":"info","message":"📨 GET /api/v1/auth/token","timestamp":"2025-07-11 20:15:52"}
+{"level":"info","message":"🔐 Auth Token Request: GET /token","timestamp":"2025-07-11 20:15:52"}
+{"level":"info","message":"📨 POST /api/v1/user","timestamp":"2025-07-11 20:18:41"}
+{"level":"info","message":"👤 Create User Request: POST /","timestamp":"2025-07-11 20:18:41"}
+{"level":"info","message":"✅ Verification email sent to: testuser@example.com","timestamp":"2025-07-11 20:18:54"}
+{"level":"info","message":"📨 POST /api/v1/user","timestamp":"2025-07-11 20:20:28"}
+{"level":"info","message":"👤 Create User Request: POST /","timestamp":"2025-07-11 20:20:28"}
+{"level":"info","message":"📨 POST /api/v1/auth/login","timestamp":"2025-07-11 21:04:05"}
+{"level":"info","message":"🔐 Auth Login Request: POST /login","timestamp":"2025-07-11 21:04:05"}
+{"level":"info","message":"📨 GET /api/v1/user/me","timestamp":"2025-07-11 21:04:26"}
+{"level":"info","message":"👤 Get Current User Request: GET /me","timestamp":"2025-07-11 21:04:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 21:10:11"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 21:10:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 21:22:48"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 21:22:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:04:13"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:06:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:06:53"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 22:06:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:09:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:23:56"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-11 22:23:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-11 22:27:11"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-07-11 22:27:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-12 08:59:23"}
+{"level":"info","message":"🚀 Server running at http://localhost:3001","timestamp":"2025-07-12 08:59:23"}
+{"level":"info","message":"📨 GET /api/v1","timestamp":"2025-07-12 09:00:49"}
+{"level":"error","message":"❌ 404 Not Found: GET /api/v1","timestamp":"2025-07-12 09:00:49"}
+{"level":"info","message":"📨 GET /favicon.ico","timestamp":"2025-07-12 09:00:52"}
+{"level":"error","message":"❌ 404 Not Found: GET /favicon.ico","timestamp":"2025-07-12 09:00:52"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-12 09:20:52"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-12 09:23:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-12 09:25:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2025-07-12 09:49:36"}
+{"level":"info","message":"🚀 Server running at http://localhost:3002","timestamp":"2025-07-12 09:49:36"}
