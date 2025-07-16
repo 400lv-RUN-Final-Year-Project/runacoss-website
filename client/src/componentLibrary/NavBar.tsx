@@ -214,137 +214,187 @@ const Navbar = () => {
   const currentUser = getCurrentUser();
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-primary text-white px-6 md:px-20 py-3 flex justify-between items-center mb-16">
-      <div className="flex items-center space-x-3">
-        <img src={Logo} alt="RUNACOSS Logo" className="w-7 h-7" />
-        <span className="text-lg font-semibold text-white">
-          RUNA<span className="text-secondary">COSS</span>
-        </span>
-      </div>
-
-      {/* Desktop Nav */}
-      <div className="hidden md:flex items-center space-x-8">
-        <ul className="flex space-x-8 text-sm font-light">
-          {navLinks.map(({ name, path }) => (
-            <li key={path}>
-              <button
-                onClick={() => handleClick(path)}
-                className={`transition-colors duration-200 ${
-                  activeSection === path
-                    ? "text-secondary font-semibold"
-                    : "text-white hover:text-secondary"
-                }`}
-              >
-                {name}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {/* Auth Section */}
-        <div className="relative">
-          {currentUser ? (
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={handleAuthClick}
-                className="flex items-center space-x-2 text-white hover:text-secondary transition-colors"
-              >
-                <HiUser className="w-5 h-5" />
-                <span className="text-sm">
-                  {currentUser.name}
-                  {currentUser.isAdmin && (
-                    <span className="ml-1 text-xs bg-red-600 px-1 rounded">ADMIN</span>
-                  )}
-                </span>
-              </button>
-              
-              {showUserMenu && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                  <div className="px-4 py-2 text-sm text-gray-700 border-b">
-                    <p className="font-medium">{currentUser.name}</p>
-                    <p className="text-gray-500">{currentUser.email}</p>
-                    <p className="text-xs text-gray-400 capitalize">{currentUser.role}</p>
-                  </div>
-                  
-                  {currentUser.isAdmin ? (
-                    <button
-                      onClick={handleAdminDashboard}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-                    >
-                      <HiCog className="w-4 h-4" />
-                      <span>Admin Dashboard</span>
-                    </button>
-                  ) : (
-                    <button
-                      onClick={handleUserDashboard}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-                    >
-                      <HiCog className="w-4 h-4" />
-                      <span>Dashboard</span>
-                    </button>
-                  )}
-                  
-                  <button
-                    onClick={handleLogout}
-                    disabled={loading}
-                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-                  >
-                    <HiLogout className="w-4 h-4" />
-                    <span>{loading ? 'Signing out...' : 'Sign out'}</span>
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <button
-              onClick={handleAuthClick}
-              className="bg-secondary text-primary px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
-            >
-              Login
-            </button>
-          )}
+    <>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-primary text-white px-6 md:px-20 py-3 flex flex-col md:flex-row justify-between items-center mb-16">
+        <div className="flex items-center space-x-3">
+          <img src={Logo} alt="RUNACOSS Logo" className="w-7 h-7" />
+          <span className="text-lg font-semibold text-white">
+            RUNA<span className="text-secondary">COSS</span>
+          </span>
         </div>
-      </div>
 
-      {/* Mobile Icon */}
-      <div className="md:hidden flex items-center space-x-4">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-        </button>
-      </div>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-8">
+          <ul className="flex space-x-8 text-sm font-light">
+            {navLinks.map(({ name, path }) => (
+              <li key={path}>
+                <button
+                  onClick={() => handleClick(path)}
+                  className={`transition-colors duration-200 ${
+                    activeSection === path
+                      ? "text-secondary font-semibold"
+                      : "text-white hover:text-secondary"
+                  }`}
+                >
+                  {name}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="absolute top-16 left-0 w-full bg-primary text-white flex flex-col items-center space-y-4 py-4 md:hidden shadow-lg">
-          {navLinks.map(({ name, path }) => (
-            <li key={path}>
-              <button
-                onClick={() => handleClick(path)}
-                className={`transition-colors duration-200 ${
-                  activeSection === path
-                    ? "text-secondary font-semibold"
-                    : "hover:text-secondary"
-                }`}
-              >
-                {name}
-              </button>
-            </li>
-          ))}
-          {/* Mobile User Menu */}
-          {currentUser ? (
-            <li className="w-full border-t border-white/20 pt-4">
-              <div className="text-center mb-2">
-                <p className="text-sm font-medium">{currentUser.name}</p>
-                <p className="text-xs text-gray-300">{currentUser.email}</p>
-                <p className="text-xs text-gray-300 capitalize">{currentUser.role}</p>
-                {currentUser.isAdmin && (
-                  <span className="text-xs bg-red-600 px-1 rounded">ADMIN</span>
+          {/* Auth Section */}
+          <div className="relative">
+            {currentUser ? (
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={handleAuthClick}
+                  className="flex items-center space-x-2 text-white hover:text-secondary transition-colors"
+                >
+                  <HiUser className="w-5 h-5" />
+                  <span className="text-sm">
+                    {currentUser.name}
+                    {currentUser.isAdmin && (
+                      <span className="ml-1 text-xs bg-red-600 px-1 rounded">ADMIN</span>
+                    )}
+                  </span>
+                </button>
+                
+                {showUserMenu && (
+                  <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    <div className="px-4 py-2 text-sm text-gray-700 border-b">
+                      <p className="font-medium">{currentUser.name}</p>
+                      <p className="text-gray-500 w-full truncate break-all" title={currentUser.email}>{currentUser.email}</p>
+                      <p className="text-xs text-gray-400 capitalize">{currentUser.role}</p>
+                    </div>
+                    
+                    {currentUser.isAdmin ? (
+                      <button
+                        onClick={handleAdminDashboard}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                      >
+                        <HiCog className="w-4 h-4" />
+                        <span>Admin Dashboard</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleUserDashboard}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                      >
+                        <HiCog className="w-4 h-4" />
+                        <span>Dashboard</span>
+                      </button>
+                    )}
+                    
+                    <button
+                      onClick={handleLogout}
+                      disabled={loading}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                    >
+                      <HiLogout className="w-4 h-4" />
+                      <span>{loading ? 'Signing out...' : 'Sign out'}</span>
+                    </button>
+                  </div>
                 )}
               </div>
-              {currentUser.isAdmin ? (
+            ) : (
+              <button
+                onClick={handleAuthClick}
+                className="bg-secondary text-primary px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+              >
+                Login
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Mobile Icon */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <ul className="absolute top-16 left-0 w-full bg-primary text-white flex flex-col items-center space-y-4 py-4 md:hidden shadow-lg">
+            {navLinks.map(({ name, path }) => (
+              <li key={path}>
+                <button
+                  onClick={() => handleClick(path)}
+                  className={`transition-colors duration-200 ${
+                    activeSection === path
+                      ? "text-secondary font-semibold"
+                      : "hover:text-secondary"
+                  }`}
+                >
+                  {name}
+                </button>
+              </li>
+            ))}
+            {/* Mobile User Menu */}
+            {currentUser ? (
+              <li className="w-full border-t border-white/20 pt-4">
+                <div className="text-center mb-2">
+                  <p className="text-sm font-medium">{currentUser.name}</p>
+                  <p className="text-xs text-gray-300 w-full truncate break-all" title={currentUser.email}>{currentUser.email}</p>
+                  <p className="text-xs text-gray-300 capitalize">{currentUser.role}</p>
+                  {currentUser.isAdmin && (
+                    <span className="text-xs bg-red-600 px-1 rounded">ADMIN</span>
+                  )}
+                </div>
+                {currentUser.isAdmin ? (
+                  <button
+                    onClick={handleAdminDashboard}
+                    className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors mb-2"
+                  >
+                    <HiCog className="w-4 h-4" />
+                    <span>Admin Dashboard</span>
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleUserDashboard}
+                    className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors mb-2"
+                  >
+                    <HiCog className="w-4 h-4" />
+                    <span>Dashboard</span>
+                  </button>
+                )}
+                <button
+                  onClick={handleLogout}
+                  disabled={loading}
+                  className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors"
+                >
+                  <HiLogout className="w-4 h-4" />
+                  <span>{loading ? 'Signing out...' : 'Sign out'}</span>
+                </button>
+              </li>
+            ) : (
+              <li className="w-full border-t border-white/20 pt-4">
+                <button
+                  onClick={handleAuthClick}
+                  className="w-full flex items-center justify-center bg-secondary text-primary px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+                >
+                  Login
+                </button>
+              </li>
+            )}
+          </ul>
+        )}
+
+        {/* Mobile User Menu Overlay */}
+        {showUserMenu && (
+          <div className="md:hidden fixed inset-0 z-40" onClick={() => setShowUserMenu(false)}>
+            <div className="absolute top-16 right-6 w-48 bg-white rounded-md shadow-lg py-1">
+              <div className="px-4 py-2 text-sm text-gray-700 border-b">
+                <p className="font-medium">{currentUser?.name}</p>
+                <p className="text-gray-500 w-full truncate break-all" title={currentUser?.email}>{currentUser?.email}</p>
+                <p className="text-xs text-gray-400 capitalize">{currentUser?.role}</p>
+              </div>
+              
+              {currentUser?.isAdmin ? (
                 <button
                   onClick={handleAdminDashboard}
-                  className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors mb-2"
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
                 >
                   <HiCog className="w-4 h-4" />
                   <span>Admin Dashboard</span>
@@ -352,74 +402,32 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={handleUserDashboard}
-                  className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors mb-2"
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
                 >
                   <HiCog className="w-4 h-4" />
                   <span>Dashboard</span>
                 </button>
               )}
+              
               <button
                 onClick={handleLogout}
                 disabled={loading}
-                className="w-full flex items-center justify-center space-x-2 text-sm hover:text-secondary transition-colors"
+                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
               >
                 <HiLogout className="w-4 h-4" />
                 <span>{loading ? 'Signing out...' : 'Sign out'}</span>
               </button>
-            </li>
-          ) : (
-            <li className="w-full border-t border-white/20 pt-4">
-              <button
-                onClick={handleAuthClick}
-                className="w-full flex items-center justify-center bg-secondary text-primary px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
-              >
-                Login
-              </button>
-            </li>
-          )}
-        </ul>
-      )}
-
-      {/* Mobile User Menu Overlay */}
-      {showUserMenu && (
-        <div className="md:hidden fixed inset-0 z-40" onClick={() => setShowUserMenu(false)}>
-          <div className="absolute top-16 right-6 w-48 bg-white rounded-md shadow-lg py-1">
-            <div className="px-4 py-2 text-sm text-gray-700 border-b">
-              <p className="font-medium">{currentUser?.name}</p>
-              <p className="text-gray-500">{currentUser?.email}</p>
-              <p className="text-xs text-gray-400 capitalize">{currentUser?.role}</p>
             </div>
-            
-            {currentUser?.isAdmin ? (
-              <button
-                onClick={handleAdminDashboard}
-                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-              >
-                <HiCog className="w-4 h-4" />
-                <span>Admin Dashboard</span>
-              </button>
-            ) : (
-              <button
-                onClick={handleUserDashboard}
-                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-              >
-                <HiCog className="w-4 h-4" />
-                <span>Dashboard</span>
-              </button>
-            )}
-            
-            <button
-              onClick={handleLogout}
-              disabled={loading}
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
-            >
-              <HiLogout className="w-4 h-4" />
-              <span>{loading ? 'Signing out...' : 'Sign out'}</span>
-            </button>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+      {/* Show current URL as a fixed element at the bottom right of the viewport */}
+      <div className="fixed bottom-2 right-2 z-[9999] pointer-events-none select-all">
+        <span className="text-xs text-gray-300 bg-primary/80 px-2 py-1 rounded">
+          {location.pathname}{location.search}
+        </span>
+      </div>
+    </>
   );
 };
 

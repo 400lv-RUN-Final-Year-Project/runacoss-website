@@ -52,6 +52,7 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
   // Profile completeness check
   const isProfileComplete = user && user.department && user.level && user.semester && user.phone && user.address;
   const [showProfileMsg, setShowProfileMsg] = useState(false);
+  const isApproved = user && user.isApproved;
 
   const sortOptions: SortOption[] = [
     { label: 'Newest First', value: 'createdAt:desc' },
@@ -81,10 +82,16 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
         setFiles(response);
         setTotalPages(1); // For now, assuming single page
         setTotalItems(response.length);
-      } else if (response && response.data) {
-        setFiles(response.data);
-        setTotalPages(response.pagination?.totalPages || 1);
-        setTotalItems(response.pagination?.totalItems || 0);
+      } else if (
+        response &&
+        typeof response === 'object' &&
+        'data' in response &&
+        Array.isArray((response as any).data)
+      ) {
+        const resp = response as { data: any[]; pagination?: { totalPages?: number; totalItems?: number } };
+        setFiles(resp.data);
+        setTotalPages(resp.pagination?.totalPages || 1);
+        setTotalItems(resp.pagination?.totalItems || 0);
       }
     } catch (err) {
       console.error('Error loading files:', err);
@@ -118,6 +125,10 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
 
   // Handle file download
   const handleDownload = async (file: RepositoryFile) => {
+    if (!isApproved) {
+      alert('You must be approved for repository access to download files.');
+      return;
+    }
     try {
       const blob = await repositoryDataService.downloadFile(file._id);
       const url = window.URL.createObjectURL(blob);
@@ -142,6 +153,10 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
 
   // Handle file delete (with profile check)
   const handleDelete = async (fileId: string) => {
+    if (!isApproved) {
+      alert('You must be approved for repository access to delete files.');
+      return;
+    }
     if (!isProfileComplete) {
       setShowProfileMsg(true);
       return;
@@ -221,6 +236,16 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
       <div className={`p-4 bg-yellow-50 border border-yellow-200 rounded-md text-yellow-800 text-center ${className}`}>
         <p className="mb-2 font-semibold">Ensure you complete your profile before uploading or deleting on the repository.</p>
         <a href="/profile" className="text-primary underline">Go to Profile</a>
+      </div>
+    );
+  }
+
+  // In the render, show a message if not approved
+  if (!isApproved) {
+    return (
+      <div className={`flex flex-col items-center justify-center p-8 ${className}`}>
+        <div className="text-red-600 font-semibold text-lg mb-2">You must be approved for repository access to view, upload, or manage files.</div>
+        <div className="text-gray-600">Please contact an admin or use the profile page to request approval.</div>
       </div>
     );
   }
@@ -409,15 +434,12 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
       )}
 
       {/* Multimedia Viewer Modal */}
-      {showViewer && selectedFile && (
+      {showViewer && selectedFile ? (
         <MultimediaViewer
           file={selectedFile}
-          onClose={() => {
-            setShowViewer(false);
-            setSelectedFile(null);
-          }}
+          onClose={() => setShowViewer(false)}
         />
-      )}
+      ) : null}
     </div>
   );
 };

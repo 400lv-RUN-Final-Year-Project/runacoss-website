@@ -30,6 +30,7 @@ import Dashboard from "./pages/Dashboard";
 import AboutUser from "./pages/about/AboutUser";
 import Programs from "./pages/programs/Programs";
 import Profile from './pages/profile/Profile';
+import TechBotChat from './componentLibrary/TechBotChat';
 
 function App() {
   return (
@@ -143,6 +144,7 @@ function App() {
           </ProtectedRoute>
         } />
       </Routes>
+      <TechBotChat />
     </div>
   );
 }

@@ -84,22 +84,4 @@ export const executives: Executive[] = [
     image: "/assets/executives/david.jpg",
     social: "https://www.instagram.com/_princewilliams07?igsh=a2Z6OHF2Y2Z6eWEw",
   },
-  {
-    name: "Female Excos",
-    position: "",
-    image: "/assets/executives/females.jpg",
-    social: "#",
-  },
-  {
-    name: "Male Excos",
-    position: "",
-    image: "/assets/executives/males.jpg",
-    social: "#",
-  },
-  {
-    name: "All EXCOS",
-    position: "",
-    image: "/assets/executives/general.jpg",
-    social: "#",
-  },
 ];

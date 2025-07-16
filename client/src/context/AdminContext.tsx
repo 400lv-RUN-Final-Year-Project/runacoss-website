@@ -28,6 +28,11 @@ interface AdminProviderProps {
   children: ReactNode;
 }
 
+// Utility to clear admin auth data
+const clearAdminAuth = () => {
+  localStorage.removeItem('adminToken');
+};
+
 export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
   const [admin, setAdmin] = useState<Admin | null>(null);
   const [loading, setLoading] = useState(true);
@@ -44,13 +49,18 @@ export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
             setAdmin(response.data);
           } else {
             // Invalid token, remove it
-            localStorage.removeItem('adminToken');
+            clearAdminAuth();
+            setAdmin(null);
           }
+        } else {
+          clearAdminAuth();
+          setAdmin(null);
         }
       } catch (err) {
         // Admin is not authenticated, which is fine
         console.log('No authenticated admin found');
-        localStorage.removeItem('adminToken');
+        clearAdminAuth();
+        setAdmin(null);
       } finally {
         setLoading(false);
       }
@@ -84,10 +94,12 @@ export const AdminProvider: React.FC<AdminProviderProps> = ({ children }) => {
     try {
       setLoading(true);
       adminApi.auth.logout();
+      clearAdminAuth();
       setAdmin(null);
     } catch (err) {
       console.error('Admin logout error:', err);
       // Still clear admin even if logout request fails
+      clearAdminAuth();
       setAdmin(null);
     } finally {
       setLoading(false);

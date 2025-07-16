@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../componentLibrary/NavBar";
-import { repositoryCategories } from '../../data/RepositoryFileData';
+import { repositoryCategories, repositoryDataService } from '../../data/RepositoryFileData';
 import { useNavigate } from 'react-router-dom';
 import Logo from "../../assets/icons/runacossLogo.svg?url";
 import Footer from "../contact/Footer";
@@ -19,6 +19,21 @@ const navLinks = [
 const RepositoryLanding = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const [categoryCounts, setCategoryCounts] = useState<{ [key: string]: number }>({});
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const stats = await repositoryDataService.getStats();
+      if (stats && stats.byCategory) {
+        const counts: { [key: string]: number } = {};
+        stats.byCategory.forEach((cat: any) => {
+          counts[cat._id] = cat.count;
+        });
+        setCategoryCounts(counts);
+      }
+    };
+    fetchStats();
+  }, []);
 
   // Filter categories by search
   const filteredCategories = repositoryCategories.filter(cat =>
@@ -58,8 +73,9 @@ const RepositoryLanding = () => {
                   <Icon className="text-3xl" style={{ color: cat.color }} />
                 </span>
                 <div className="font-bold text-lg text-gray-900 text-center">{cat.label}</div>
-                {/* Placeholder for item count */}
-                <div className="text-xs text-gray-400 font-mono">0 items</div>
+                <div className="text-xs text-gray-400 font-mono">
+                  {categoryCounts[cat.name] || 0} items
+                </div>
               </div>
             );
           })}

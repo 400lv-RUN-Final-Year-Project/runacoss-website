@@ -5,7 +5,7 @@ import Navbar from "../../../componentLibrary/NavBar";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import { useApi } from "../../../hooks/useApi";
 import { useAuth } from "../../../context/AuthContext";
-import apiService from "../../../services/api";
+import { getBlogs, deleteBlog as blogDeleteApi } from "../../../services/blogApi";
 import { Blog } from "../../../services/types";
 import Footer from "../../contact/Footer";
 
@@ -20,8 +20,8 @@ const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data: blogsData, loading, error, execute: fetchBlogs } = useApi<any>(apiService.getBlogs);
-  const { loading: deleting, execute: deleteBlog } = useApi(apiService.deleteBlog);
+  const { data: blogsData, loading, error, execute: fetchBlogs } = useApi<any>(getBlogs);
+  const { loading: deleting, execute: deleteBlog } = useApi(blogDeleteApi);
 
   useEffect(() => {
     fetchBlogs(currentPage, 20);
@@ -92,9 +92,10 @@ const BlogList = () => {
   }
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
-      <section className="px-6 md:px-20 py-20 relative">
+      <main className="flex-1">
+        <section className="px-6 md:px-20 py-20 relative">
         {/* Header + Search */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
           <div className="flex items-center gap-4">
@@ -233,9 +234,10 @@ const BlogList = () => {
             </div>
           </div>
         )}
-      </section>
+        </section>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

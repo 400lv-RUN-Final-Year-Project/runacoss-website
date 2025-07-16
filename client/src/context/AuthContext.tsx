@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User } from '../services/types';
 import apiService from '../services/api';
+import authService from '../services/authService';
 
 interface AuthContextType {
   user: User | null;
@@ -38,6 +39,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       try {
         const hasToken = !!localStorage.getItem('accessToken');
         if (!hasToken) {
+          authService.clearAuth(); // Ensure all auth data is cleared if no token
           setUser(null);
           setLoading(false);
           return;
@@ -48,10 +50,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (response.success && response.data) {
           setUser(response.data);
         } else {
+          authService.clearAuth(); // Clear any stale data if token is invalid
           setUser(null);
         }
         setLoading(false);
       } catch (err) {
+        authService.clearAuth(); // Clear any stale data on error
         setUser(null);
         console.log('No authenticated user found');
       } finally {
@@ -97,10 +101,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       setLoading(true);
       await apiService.auth.logout();
+      authService.clearAuth(); // Always clear all auth data on logout
       setUser(null);
     } catch (err) {
       console.error('Logout error:', err);
       // Still clear user even if logout request fails
+      authService.clearAuth();
       setUser(null);
     } finally {
       setLoading(false);

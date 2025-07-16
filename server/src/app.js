@@ -16,6 +16,7 @@ const { fileRouter, repositoryRouter } = require('./routes/fileRoutes');
 const newsRouter = require('./routes/newsRoutes');
 const adminRouter = require('./routes/adminRoutes');
 const paymentRouter = require('./routes/paymentRoutes');
+const chatbotRouter = require('./routes/chatbotRoutes');
 const app = express();
 const path = require('path');
 
@@ -108,6 +109,7 @@ app.use("/api/files", uploadLimiter, fileRouter);
 app.use("/api/repository", uploadLimiter, repositoryRouter);
 app.use("/api/news", newsRouter);
 app.use("/api/payments", paymentRouter);
+app.use("/api/chatbot", chatbotRouter);
 
 // Health check endpoints
 app.get("/", (req, res) => {

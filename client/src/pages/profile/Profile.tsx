@@ -21,6 +21,7 @@ const EditProfileModal = ({ open, onClose, user, onSave }: any) => {
   const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [uploadingPhoto, setUploadingPhoto] = useState(false);
+  const [approving, setApproving] = useState(false);
 
   if (!open) return null;
 
@@ -75,6 +76,23 @@ const EditProfileModal = ({ open, onClose, user, onSave }: any) => {
       alert(err?.message || 'Failed to upload photo.');
     } finally {
       setUploadingPhoto(false);
+    }
+  };
+
+  const handleApproveUser = async () => {
+    try {
+      setApproving(true);
+      const response = await apiService.approveCurrentUser();
+      if (response.success && response.data) {
+        setUser(response.data);
+        alert('You have been approved for repository access!');
+      } else {
+        alert(response?.error || 'Failed to approve user.');
+      }
+    } catch (err: any) {
+      alert(err?.message || 'Failed to approve user.');
+    } finally {
+      setApproving(false);
     }
   };
 
@@ -227,6 +245,17 @@ const EditProfileModal = ({ open, onClose, user, onSave }: any) => {
           <div className="flex justify-end gap-2 mt-6">
             <button type="button" className="px-4 py-2 rounded bg-gray-200 text-gray-700" onClick={onClose} disabled={saving}>Cancel</button>
             <button type="submit" className="px-4 py-2 rounded bg-primary text-white hover:bg-primary/90" disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
+            {/* Approve for Repository Access button (only if not approved) */}
+            {user && !user.isApproved && (
+              <button
+                type="button"
+                className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 disabled:opacity-50"
+                onClick={handleApproveUser}
+                disabled={approving}
+              >
+                {approving ? 'Approving...' : 'Approve for Repository Access'}
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -340,6 +369,17 @@ const Profile: React.FC = () => {
         </div>
         {/* Edit Profile Modal */}
         <EditProfileModal open={editOpen} onClose={() => setEditOpen(false)} user={user} onSave={() => setEditOpen(false)} />
+        {/* Repository Link above the footer */}
+        {user && !user.isApproved && (
+          <div className="w-full flex justify-center">
+            <a
+              href="/repository"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-lg font-semibold shadow hover:bg-primary/90 transition-colors text-lg mt-0"
+            >
+              Go to Repository
+            </a>
+          </div>
+        )}
       </main>
       <Footer />
     </div>
