@@ -7,15 +7,10 @@ import {
   HiPhotograph, 
   HiCode, 
   HiChartBar, 
-  HiClipboardList,
   HiAcademicCap,
   HiBookOpen,
   HiPresentationChartLine,
   HiLightBulb,
-  HiDocumentReport,
-  HiCollection,
-  HiTemplate,
-  HiDocumentDuplicate,
   HiClipboardCheck
 } from "react-icons/hi";
 
@@ -160,7 +155,7 @@ export const repositoryCategories: RepositoryCategory[] = [
     name: 'templates',
     label: 'Templates',
     description: 'Document and project templates',
-    icon: HiTemplate,
+    icon: HiDocumentText, // Changed from HiTemplate to HiDocumentText
     color: '#DC2626',
     allowedFileTypes: ['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'rar'],
     maxFileSize: 50 * 1024 * 1024 // 50MB

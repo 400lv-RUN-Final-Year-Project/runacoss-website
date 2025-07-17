@@ -1,14 +1,3 @@
-import { 
-  RepositoryFile, 
-  Blog, 
-  News, 
-  User,
-  FileResponse, 
-  BlogResponse, 
-  NewsResponse,
-  ApiResponse 
-} from './types';
-
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api';
 
 // Helper function to handle API responses

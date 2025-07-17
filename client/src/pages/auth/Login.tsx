@@ -3,8 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
-import { FaGoogle, FaLinkedin } from 'react-icons/fa';
-import { HiMail } from 'react-icons/hi';
+import { FaGoogle } from 'react-icons/fa';
 import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
 const AuthPage = () => {
@@ -42,9 +41,9 @@ const AuthPage = () => {
     department?: string;
   }>({});
 
-  const { login, register, loading, error, clearError, user } = useAuth();
+  const { login, register, error, clearError, user } = useAuth();
   const navigate = useNavigate();
-  const [unverified, setUnverified] = useState(false);
+  const [unverified] = useState(false);
   const [loadingForm, setLoadingForm] = useState(false);
 
   // Handle route changes
@@ -246,20 +245,10 @@ const AuthPage = () => {
     }
   };
 
-  const toggleForm = () => {
-    setIsLogin(!isLogin);
-    clearError();
-    // Clear form errors when switching
-    setLoginFormErrors({});
-    setRegisterFormErrors({});
-  };
-
   const handleSocialLogin = (provider: string) => {
     let url = '';
     if (provider === 'Gmail') {
       url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'}/auth/google`;
-    } else if (provider === 'LinkedIn') {
-      url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'}/auth/linkedin`;
     }
     if (url) {
       window.open(url, '_self');
@@ -526,14 +515,6 @@ const AuthPage = () => {
                 >
                   <FaGoogle className="text-lg" />
                   Login with Gmail
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleSocialLogin('LinkedIn')}
-                  className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-primary bg-white hover:bg-gray-50"
-                >
-                  <FaLinkedin className="text-lg" />
-                  Login with LinkedIn
                 </button>
               </div>
             </>

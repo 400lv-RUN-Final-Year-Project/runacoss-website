@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate, Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 
@@ -13,8 +12,6 @@ const EmailVerification = () => {
   const [token, setToken] = useState<string>(
     (location.state && location.state.verificationToken) || searchParams.get('token') || ''
   );
-  const [email, setEmail] = useState(location.state?.email || '');
-  const { clearError } = useAuth();
 
   // Show the code if available (for user convenience)
   const showCode = location.state?.verificationToken;
@@ -50,10 +47,6 @@ const EmailVerification = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleVerify();
-  };
-
-  const handleContinue = () => {
-    navigate('/login');
   };
 
   const handleRetry = () => {

@@ -30,7 +30,7 @@ const JobOpportunities: FC = () => {
             </p>
           </FadeInSection>
           <ul className="list-disc pl-5 space-y-2">
-            {jobs.roles.map((role, i) => (
+            {jobs.roles.map((role: string, i: number) => (
               <FadeInSection key={i}>
                 <li>{role}</li>
               </FadeInSection>
@@ -46,7 +46,7 @@ const JobOpportunities: FC = () => {
             </p>
           </FadeInSection>
           <ul className="list-disc pl-5 space-y-2">
-            {jobs.industries.map((industry, i) => (
+            {jobs.industries.map((industry: string, i: number) => (
               <FadeInSection key={i}>
                 <li>{industry}</li>
               </FadeInSection>

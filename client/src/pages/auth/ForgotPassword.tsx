@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { authApi } from '../../services/api';
 import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
@@ -8,7 +8,6 @@ const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const validateInput = (input: string) => {
     // RUN email: lastnamefivedigit@run.edu.ng

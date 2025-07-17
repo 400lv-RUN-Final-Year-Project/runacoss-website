@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { adminApi } from '../../services/adminApi';
 import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
@@ -8,7 +8,6 @@ const AdminForgotPassword = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,6 +1,4 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import { useApi } from '../hooks/useApi';
 import apiService from '../services/api';
 import LoadingSpinner from './LoadingSpinner';
@@ -21,14 +19,12 @@ const FileUpload: React.FC<FileUploadProps> = ({
   semester,
   onUploadSuccess
 }) => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [dragActive, setDragActive] = useState(false);
 
-  const { loading: uploading, execute: uploadFile } = useApi(apiService.uploadFile);
+  const { loading: uploading, execute: uploadFile } = useApi(apiService.repository.uploadFile);
 
   const handleFileSelect = (file: File) => {
     // Validate file type

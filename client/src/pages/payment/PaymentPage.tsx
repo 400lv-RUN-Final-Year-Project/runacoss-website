@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { HiArrowLeft, HiCreditCard, HiCheckCircle, HiXCircle } from 'react-icons/hi';
+import { HiCheckCircle } from 'react-icons/hi';
 import Logo from '../../assets/icons/runacossLogo.svg?url';
 import { paymentApi } from '../../services/paymentApi';
 import Navbar from '../../componentLibrary/NavBar';
@@ -114,20 +114,6 @@ const PaymentPage = () => {
       console.error('Failed to send receipt email:', err);
     }
   };
-
-  const departmentOptions = [
-    'Computer Science',
-    'Cyber Security',
-    'Information Technology',
-  ];
-
-  const [formErrors, setFormErrors] = useState<{
-    email?: string;
-    matricNumber?: string;
-    department?: string;
-    general?: string;
-  }>({});
-  const [inputEmail, setInputEmail] = useState(email);
 
   // Email and department validation logic (copied from Register.tsx)
   // Remove all input fields for name, email, matric number, and department

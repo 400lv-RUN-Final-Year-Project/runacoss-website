@@ -15,7 +15,6 @@ const Setup2FA: React.FC<Setup2FAProps> = ({ onSuccess, onCancel }) => {
   // 2FA setup data
   const [qrCode, setQrCode] = useState('');
   const [secret, setSecret] = useState('');
-  const [otpauthUrl, setOtpauthUrl] = useState('');
 
   // Verification
   const [token, setToken] = useState('');
@@ -36,7 +35,6 @@ const Setup2FA: React.FC<Setup2FAProps> = ({ onSuccess, onCancel }) => {
       if (response.success) {
         setQrCode(response.qrCode || '');
         setSecret(response.secret || '');
-        setOtpauthUrl(response.otpauthUrl || '');
       } else {
         setError(response.message || 'Failed to setup 2FA');
       }

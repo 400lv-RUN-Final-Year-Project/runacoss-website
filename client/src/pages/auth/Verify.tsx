@@ -15,8 +15,8 @@ export default function Verify() {
 
   // Try to get email/password from state or sessionStorage
   const state = location.state || {};
-  const [email, setEmail] = useState(state.email || sessionStorage.getItem('pendingEmail') || '');
-  const [password, setPassword] = useState(state.password || sessionStorage.getItem('pendingPassword') || '');
+  const [email] = useState(state.email || sessionStorage.getItem('pendingEmail') || '');
+  const [password] = useState(state.password || sessionStorage.getItem('pendingPassword') || '');
   const [info, setInfo] = useState(state.info || sessionStorage.getItem('pendingInfo') || 'Check your mail for verification code.');
 
   // On mount, check for email and set loading false

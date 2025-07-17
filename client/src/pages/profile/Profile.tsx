@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
 import Footer from '../contact/Footer';
 import apiService from '../../services/api';
 import Navbar from '../../componentLibrary/NavBar';

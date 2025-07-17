@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { RepositoryFile } from '../services/types';
-import { formatFileSize, formatDuration, getFileTypeCategory } from '../data/RepositoryFileData';
+import { formatDuration, getFileTypeCategory } from '../data/RepositoryFileData';
 
 interface MultimediaViewerProps {
   file: RepositoryFile;
@@ -65,7 +65,7 @@ const MultimediaViewer: React.FC<MultimediaViewerProps> = ({
   useEffect(() => {
     if (fileTypeCategory !== 'video') return;
 
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const handleMouseMove = () => {
       setShowControls(true);
       clearTimeout(timeout);

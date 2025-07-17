@@ -5,8 +5,8 @@ import Navbar from "../../../componentLibrary/NavBar";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import { useApi } from "../../../hooks/useApi";
 import { useAuth } from "../../../context/AuthContext";
-import { getBlogs, deleteBlog as blogDeleteApi } from "../../../services/blogApi";
-import { Blog } from "../../../services/types";
+import apiService from '../../../services/api';
+import { Blog, BlogResponse } from "../../../services/types";
 import Footer from "../../contact/Footer";
 
 const BlogList = () => {
@@ -20,8 +20,20 @@ const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data: blogsData, loading, error, execute: fetchBlogs } = useApi<any>(getBlogs);
-  const { loading: deleting, execute: deleteBlog } = useApi(blogDeleteApi);
+  const mapApiToBlogResponse = (apiRes: any): BlogResponse => ({
+    message: apiRes.message || '',
+    blogs: apiRes.blogs || [],
+    page: apiRes.page || 1,
+    limit: apiRes.limit || 20,
+    totalPages: apiRes.totalPages || 1,
+    totalBlogs: apiRes.totalBlogs || 0,
+  });
+
+  const { data: blogsData, loading, error, execute: fetchBlogs } = useApi<BlogResponse>(
+    (page: number, limit: number) =>
+      apiService.blog.getBlogs(page, limit).then(mapApiToBlogResponse)
+  );
+  const { loading: deleting, execute: deleteBlog } = useApi((blogId: string) => apiService.blog.deleteBlog(blogId));
 
   useEffect(() => {
     fetchBlogs(currentPage, 20);
@@ -54,9 +66,11 @@ const BlogList = () => {
     }
   };
 
-  const filteredBlogs = blogsData?.blogs?.filter((b: Blog) =>
-    `${b.title} ${b.user.firstName} ${b.user.lastName}`.toLowerCase().includes(searchTerm.toLowerCase())
-  ) || [];
+  const filteredBlogs = Array.isArray(blogsData?.blogs)
+    ? blogsData.blogs.filter((b: Blog) =>
+        `${b.title} ${b.user.firstName} ${b.user.lastName}`.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   if (loading && !blogsData) {
     return (
@@ -71,13 +85,18 @@ const BlogList = () => {
   }
 
   if (error) {
+    console.error('Blog loading error:', error, blogsData);
     return (
       <>
         <Navbar />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Blogs</h2>
-            <p className="text-gray-600 mb-4">{error}</p>
+            <p className="text-gray-600 mb-4">
+              {typeof error === 'string' && error.includes('Failed to fetch')
+                ? 'Could not connect to the server. Please check your internet connection or try again later.'
+                : 'An error occurred while loading blogs. Please try again.'}
+            </p>
             <button
               onClick={() => fetchBlogs(currentPage, 20)}
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
@@ -194,11 +213,11 @@ const BlogList = () => {
               Previous
             </button>
             <span className="px-4 py-2">
-              Page {currentPage} of {blogsData.totalPages}
+              Page {currentPage} of {blogsData.totalPages || 1}
             </span>
             <button
-              onClick={() => setCurrentPage(prev => Math.min(blogsData.totalPages, prev + 1))}
-              disabled={currentPage === blogsData.totalPages}
+              onClick={() => setCurrentPage(prev => Math.min(blogsData.totalPages || 1, prev + 1))}
+              disabled={currentPage === (blogsData.totalPages || 1)}
               className="px-4 py-2 bg-primary text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next

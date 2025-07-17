@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { RepositoryFile } from '../../services/types';
-import { repositoryDataService, getCategoryByName, repositoryCategories } from '../../data/RepositoryFileData';
+import { repositoryDataService, getCategoryByName } from '../../data/RepositoryFileData';
 import RepositoryFileList from '../../componentLibrary/RepositoryFileList';
 import FileUpload from '../../componentLibrary/FileUpload';
 import MultimediaViewer from '../../componentLibrary/MultimediaViewer';
@@ -41,17 +41,6 @@ const RepositoryCategory: React.FC = () => {
 
     loadStats();
   }, [category]);
-
-  const handleFileSelect = (file: RepositoryFile) => {
-    setSelectedFile(file);
-    setShowViewer(true);
-  };
-
-  const handleUploadSuccess = (file: any) => {
-    setShowUpload(false);
-    // Refresh the file list
-    window.location.reload();
-  };
 
   const handleUploadError = (error: string) => {
     console.error('Upload error:', error);
@@ -153,7 +142,6 @@ const RepositoryCategory: React.FC = () => {
       <div className="bg-white rounded-lg shadow-sm border">
         <RepositoryFileList
           category={category}
-          onFileSelect={handleFileSelect}
           className="p-6"
         />
       </div>
@@ -177,7 +165,11 @@ const RepositoryCategory: React.FC = () => {
                 department={user?.department || ''}
                 level={user?.level || ''}
                 semester={user?.semester || ''}
-                onUploadSuccess={handleUploadSuccess}
+                onUploadSuccess={() => {
+                  setShowUpload(false);
+                  // Refresh the file list
+                  window.location.reload();
+                }}
                 onUploadError={handleUploadError}
               />
             </div>

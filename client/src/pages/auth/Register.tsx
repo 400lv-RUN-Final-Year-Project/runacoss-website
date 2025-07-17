@@ -444,15 +444,6 @@ const Register = () => {
                 {/* Gmail Icon */}
                 Login with Gmail
               </button>
-              {/* Login with LinkedIn */}
-              <button
-                type="button"
-                className="w-full inline-flex justify-center items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
-                // onClick={handleLinkedInLogin}
-              >
-                {/* LinkedIn Icon */}
-                Login with LinkedIn
-              </button>
             </div>
           </div>
 

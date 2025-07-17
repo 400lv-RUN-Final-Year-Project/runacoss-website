@@ -10,7 +10,6 @@ interface RepositoryFileListProps {
   level?: string;
   semester?: string;
   search?: string;
-  onFileSelect?: (file: RepositoryFile) => void;
   onFileDelete?: (fileId: string) => void;
   className?: string;
 }
@@ -25,7 +24,6 @@ const RepositoryFileList: React.FC<RepositoryFileListProps> = ({
   department,
   level,
   semester,
-  onFileSelect,
   onFileDelete,
   className = '',
   search

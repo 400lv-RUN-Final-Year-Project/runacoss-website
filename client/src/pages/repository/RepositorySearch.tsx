@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RepositoryFile, FileSearchFilters } from '../../services/types';
-import { repositoryDataService, repositoryCategories, repositoryDepartments } from '../../data/RepositoryFileData';
+import { repositoryCategories, repositoryDepartments } from '../../data/RepositoryFileData';
 import RepositoryFileList from '../../componentLibrary/RepositoryFileList';
 import MultimediaViewer from '../../componentLibrary/MultimediaViewer';
 import Footer from "../contact/Footer";
@@ -13,7 +13,7 @@ const RepositorySearch: React.FC = () => {
     sortBy: 'createdAt',
     sortOrder: 'desc'
   });
-  const [selectedFile, setSelectedFile] = useState<RepositoryFile | null>(null);
+  const [selectedFile] = useState<RepositoryFile | null>(null);
   const [showViewer, setShowViewer] = useState(false);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
@@ -47,11 +47,6 @@ const RepositorySearch: React.FC = () => {
       }
     }, 100);
   }, [saveToHistory]);
-
-  const handleFileSelect = (file: RepositoryFile) => {
-    setSelectedFile(file);
-    setShowViewer(true);
-  };
 
   const handleFilterChange = (key: string, value: any) => {
     setFilters(prev => ({
@@ -323,7 +318,6 @@ const RepositorySearch: React.FC = () => {
         <RepositoryFileList
           {...filters}
           search={searchQuery}
-          onFileSelect={handleFileSelect}
           className="mt-4"
         />
         {/* Multimedia Viewer (if needed) */}

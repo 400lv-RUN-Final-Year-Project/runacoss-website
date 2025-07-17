@@ -87,7 +87,7 @@ interface AdminFormData {
 }
 
 const AdminManagement: React.FC = () => {
-  const { admin, token } = useAdmin();
+  const { admin } = useAdmin();
   const [admins, setAdmins] = useState<Admin[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);

@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../../componentLibrary/NavBar";
 import { repositoryCategories, repositoryDataService } from '../../data/RepositoryFileData';
 import { useNavigate } from 'react-router-dom';
-import Logo from "../../assets/icons/runacossLogo.svg?url";
 import Footer from "../contact/Footer";
-
-const navLinks = [
-  { name: "Home", path: "/home" },
-  { name: "About us", path: "/about-runacoss" },
-  { name: "Programs", path: "/programs" },
-  { name: "News", path: "/news" },
-  { name: "Repository", path: "/repository" },
-  { name: "Blogs", path: "/blogs" },
-  { name: "Dues", path: "/dues" },
-  { name: "Contact", path: "/contact" },
-];
 
 const RepositoryLanding = () => {
   const [search, setSearch] = useState("");

@@ -1,4 +1,16 @@
-import { Program } from "../services/types";
+// Define Program type inline since it is not exported from services/types
+export interface Program {
+  id: string;
+  title: string;
+  description: string;
+  mission: string;
+  vision: string;
+  whatYouLearn: string[];
+  jobOpportunities: {
+    roles: string[];
+    industries: string[];
+  };
+}
 
 export const programs: Program[] = [
   {

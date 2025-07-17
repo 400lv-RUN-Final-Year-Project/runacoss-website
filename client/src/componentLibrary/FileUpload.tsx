@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { FileUploadRequest, RepositoryCategory } from '../services/types';
+import { FileUploadRequest } from '../services/types';
 import { repositoryDataService, validateFileType, validateFileSize, formatFileSize, getFileTypeCategory, getAllowedFileTypes, getMaxFileSize } from '../data/RepositoryFileData';
 
 interface FileUploadProps {

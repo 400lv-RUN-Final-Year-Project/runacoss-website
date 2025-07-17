@@ -21,7 +21,7 @@ interface DashboardStats {
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
-  const { admin, hasPermission } = useAdmin();
+  const { hasPermission } = useAdmin();
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
