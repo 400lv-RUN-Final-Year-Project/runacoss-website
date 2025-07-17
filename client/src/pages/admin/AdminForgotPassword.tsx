@@ -1,35 +1,22 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { authApi } from '../../services/api';
+import { adminApi } from '../../services/adminApi';
 import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
-const ForgotPassword = () => {
+const AdminForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const validateInput = (input: string) => {
-    // RUN email: lastnamefivedigit@run.edu.ng
-    const emailRegex = /^[a-z]+\d{5}@run\.edu\.ng$/i;
-    // Matric: RUN/CSC/YY/12345, RUN/CYB/YY/12345, RUN/IFT/YY/12345
-    const matricRegex = /^RUN\/(CSC|CYB|IFT)\/[0-9]{2}\/[0-9]{5}$/i;
-    return emailRegex.test(input.trim()) || matricRegex.test(input.trim());
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setSuccess('');
     setError('');
-    if (!validateInput(email)) {
-      setLoading(false);
-      setError('Enter a valid RUN email (lastnamefivedigit@run.edu.ng) or matric number (RUN/CSC/YY/12345, RUN/CYB/YY/12345, RUN/IFT/YY/12345), case-insensitive.');
-      return;
-    }
     try {
-      const response = await authApi.forgotPassword(email);
+      const response = await adminApi.auth.forgotPassword(email);
       if (response.success) {
         setSuccess('Password reset email sent! Please check your inbox.');
       } else {
@@ -50,10 +37,10 @@ const ForgotPassword = () => {
       </Link>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Forgot Password
+          Admin Forgot Password
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Enter your email address and we'll send you a link to reset your password.
+          Enter your admin email address and we'll send you a link to reset your password.
         </p>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -61,7 +48,7 @@ const ForgotPassword = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
+                Admin Email address
               </label>
               <div className="mt-1">
                 <input
@@ -73,7 +60,7 @@ const ForgotPassword = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm border-gray-300"
-                  placeholder="Enter your email"
+                  placeholder="Enter your admin email"
                 />
               </div>
             </div>
@@ -98,7 +85,7 @@ const ForgotPassword = () => {
             </div>
           </form>
           <div className="mt-6 text-center text-sm text-gray-600">
-            <Link to="/login" className="text-primary hover:text-primary/80">
+            <Link to="/admin/login" className="text-primary hover:text-primary/80">
               Back to Sign In
             </Link>
           </div>
@@ -108,4 +95,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword; 
+export default AdminForgotPassword; 

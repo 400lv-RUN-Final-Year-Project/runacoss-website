@@ -11,6 +11,7 @@ import News from "./news/News";
 import Programs from "./programs/Programs";
 import { repositoryCategories } from "../data/RepositoryFileData";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   const location = useLocation();
@@ -84,6 +85,14 @@ function LandingPage() {
         <Contact />
       </section>
 
+      <div className="w-full flex justify-center py-2">
+        <Link
+          to="/admin/login"
+          className="text-xs text-primary hover:underline opacity-70"
+        >
+          Admin Login
+        </Link>
+      </div>
       <Footer />
     </div>
   );

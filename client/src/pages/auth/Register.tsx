@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
+import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
 const Register = () => {
   console.log('Register page loaded');
@@ -163,7 +164,11 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center">
+      <Link to="/" className="flex items-center gap-2 text-3xl font-extrabold text-primary select-none mb-8 mt-8">
+        <img src={runacossLogo} alt="RUNACOSS Logo" className="w-10 h-10" />
+        RUNA<span className="text-secondary">COSS</span>
+      </Link>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <Link to="/home" className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer">
@@ -191,6 +196,12 @@ const Register = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-2">
+            Register User
+          </h2>
+          <p className="text-center text-sm text-gray-600 mb-6">
+            Access the RUNACOSS user dashboard
+          </p>
           {error && (
             <div className="mb-4 bg-red-50 border border-red-200 rounded-md p-4">
               <p className="text-sm text-red-600">{error}</p>

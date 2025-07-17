@@ -75,6 +75,54 @@ export const adminAuthApi = {
     });
 
     return handleResponse(response);
+  },
+
+  // Admin registration
+  register: async (adminData: { name: string; email: string; password: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(adminData),
+    });
+    return handleResponse(response);
+  },
+
+  // Admin verification
+  verify: async ({ email, code }: { email: string; code: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/verify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, code }),
+    });
+    return handleResponse(response);
+  },
+
+  // Admin email verification (link-based)
+  verifyEmail: async ({ token }: { token: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/verify-email`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    });
+    return handleResponse(response);
+  },
+
+  // Admin forgot password
+  forgotPassword: async (email: string) => {
+    const response = await fetch(`${API_BASE_URL}/admin/forgot-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+    return handleResponse(response);
   }
 };
 

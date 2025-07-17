@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAdmin } from '../../context/AdminContext';
+import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
 const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -29,28 +30,19 @@ const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Link to="/home" className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">R</span>
-            </div>
-            <span className="text-2xl font-bold text-primary">
-              RUNA<span className="text-secondary">COSS</span>
-            </span>
-          </Link>
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Admin Login
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Access the RUNACOSS admin panel
-        </p>
-      </div>
-
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center">
+      <Link to="/" className="flex items-center gap-2 text-3xl font-extrabold text-primary select-none mb-8 mt-8">
+        <img src={runacossLogo} alt="RUNACOSS Logo" className="w-10 h-10" />
+        RUNA<span className="text-secondary">COSS</span>
+      </Link>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-2">
+            Admin Login
+          </h2>
+          <p className="text-center text-sm text-gray-600 mb-6">
+            Access the RUNACOSS admin panel
+          </p>
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
@@ -113,20 +105,12 @@ const AdminLogin: React.FC = () => {
               </button>
             </div>
           </form>
-
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Default Credentials</span>
-              </div>
-            </div>
-            <div className="mt-4 text-center text-xs text-gray-500">
-              <p>Super Admin: superadmin@runacoss.com / superadmin123</p>
-              <p className="mt-1">Regular Admin: admin@runacoss.com / admin123</p>
-            </div>
+          <div className="mt-4 text-center">
+            <span className="text-sm text-gray-600">Don't have an admin account? </span>
+            <Link to="/admin/register" className="text-primary hover:underline text-sm">Register here</Link>
+          </div>
+          <div className="mt-4 text-center">
+            <Link to="/admin/forgot-password" className="text-primary hover:underline text-sm">Forgot password?</Link>
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ const newsRouter = require('./routes/newsRoutes');
 const adminRouter = require('./routes/adminRoutes');
 const paymentRouter = require('./routes/paymentRoutes');
 const chatbotRouter = require('./routes/chatbotRoutes');
+const passport = require('./helpers/passport');
 const app = express();
 const path = require('path');
 
@@ -90,6 +91,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 app.use(compression()); // Reduce response size
 app.use(morgan('dev')); // Request logging
+app.use(passport.initialize());
 
 // Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

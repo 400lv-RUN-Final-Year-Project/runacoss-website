@@ -5,6 +5,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
+import runacossLogo from '../../assets/icons/runacossLogo.svg?url';
 
 const AuthPage = () => {
   console.log('Login page loaded');
@@ -254,30 +255,41 @@ const AuthPage = () => {
   };
 
   const handleSocialLogin = (provider: string) => {
-    // Placeholder for social login logic
-    alert(`Login with ${provider} coming soon!`);
+    let url = '';
+    if (provider === 'Gmail') {
+      url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'}/auth/google`;
+    } else if (provider === 'LinkedIn') {
+      url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'}/auth/linkedin`;
+    }
+    if (url) {
+      window.open(url, '_self');
+    }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Link to="/home" className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">R</span>
-            </div>
-            <span className="text-2xl font-bold text-primary">
-              RUNA<span className="text-secondary">COSS</span>
-            </span>
-          </Link>
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          {!isLogin ? 'Create your account' : 'Login to your account'}
-        </h2>
-      </div>
+  // Handle /oauth-success?token=... on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    if (window.location.pathname === '/oauth-success' && token) {
+      localStorage.setItem('accessToken', token);
+      navigate('/dashboard');
+    }
+  }, [navigate]);
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center">
+      <Link to="/" className="flex items-center gap-2 text-3xl font-extrabold text-primary select-none mb-8 mt-8">
+        <img src={runacossLogo} alt="RUNACOSS Logo" className="w-10 h-10" />
+        RUNA<span className="text-secondary">COSS</span>
+      </Link>
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-2">
+            User Login
+          </h2>
+          <p className="text-center text-sm text-gray-600 mb-6">
+            Access the RUNACOSS user dashboard
+          </p>
           {/* Register Form (default landing) */}
           {!isLogin && (
             <>
@@ -514,14 +526,6 @@ const AuthPage = () => {
                 >
                   <FaGoogle className="text-lg" />
                   Login with Gmail
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleSocialLogin('Email')}
-                  className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-primary bg-white hover:bg-gray-50"
-                >
-                  <HiMail className="text-lg" />
-                  Login with Email
                 </button>
                 <button
                   type="button"

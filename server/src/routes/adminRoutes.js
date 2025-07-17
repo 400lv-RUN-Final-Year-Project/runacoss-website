@@ -56,8 +56,8 @@ adminRouter.post("/reset-password", adminResetPassword);
 adminRouter.post("/verify-email", adminVerifyEmail);
 adminRouter.post("/resend-verification", adminResendVerification);
 
-// Admin Registration (Protected - Super Admin only)
-adminRouter.post("/register", requireAdminSignIn, checkAdminPermission('system', 'manageAdmins'), adminRegister);
+// Admin Registration (Public)
+adminRouter.post("/register", adminRegister);
 
 // Admin Profile Routes (Protected)
 adminRouter.get("/profile", requireAdminSignIn, getAdminProfile);

@@ -1,4 +1,6 @@
 const express = require('express');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 const {
   registerUser, 
   loginUser, 
@@ -59,6 +61,22 @@ authRouter.get('/dashboard', requireSignIn, async (req, res) => {
   // const dbUser = await User.findById(user.userId);
   // if (!dbUser || !dbUser.isVerified) return res.status(401).json({ error: 'Not verified' });
   res.json({ message: `Welcome to your dashboard, ${user.firstName || ''}!` });
+});
+
+// Google OAuth
+authRouter.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+authRouter.get('/google/callback', passport.authenticate('google', { session: false, failureRedirect: '/login' }), (req, res) => {
+  // Generate JWT and redirect to frontend with token
+  const token = jwt.sign({ userId: req.user._id, email: req.user.email }, process.env.JWT_SECRET, { expiresIn: '24h' });
+  res.redirect(`${process.env.FRONTEND_BASE_URL || 'http://localhost:5173'}/oauth-success?token=${token}`);
+});
+
+// LinkedIn OAuth
+authRouter.get('/linkedin', passport.authenticate('linkedin', { scope: ['r_emailaddress', 'r_liteprofile'] }));
+authRouter.get('/linkedin/callback', passport.authenticate('linkedin', { session: false, failureRedirect: '/login' }), (req, res) => {
+  // Generate JWT and redirect to frontend with token
+  const token = jwt.sign({ userId: req.user._id, email: req.user.email }, process.env.JWT_SECRET, { expiresIn: '24h' });
+  res.redirect(`${process.env.FRONTEND_BASE_URL || 'http://localhost:5173'}/oauth-success?token=${token}`);
 });
 
 // Test email configuration (development only)

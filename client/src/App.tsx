@@ -30,7 +30,10 @@ import Dashboard from "./pages/Dashboard";
 import AboutUser from "./pages/about/AboutUser";
 import Programs from "./pages/programs/Programs";
 import Profile from './pages/profile/Profile';
-import TechBotChat from './componentLibrary/TechBotChat';
+import AdminRegister from './pages/admin/AdminRegister';
+import AdminVerify from './pages/admin/AdminVerify';
+import AdminForgotPassword from './pages/admin/AdminForgotPassword';
+// import TechBotChat from './componentLibrary/TechBotChat';
 
 function App() {
   return (
@@ -69,6 +72,9 @@ function App() {
             <AdminManagement />
           </AdminProtectedRoute>
         } />
+        <Route path="/admin/register" element={<AdminRegister />} />
+        <Route path="/admin/verify" element={<AdminVerify />} />
+        <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
 
         {/* Public Routes */}
         <Route path="/about-runacoss" element={<AboutPage />} />
@@ -144,7 +150,7 @@ function App() {
           </ProtectedRoute>
         } />
       </Routes>
-      <TechBotChat />
+      {/* <TechBotChat /> */}
     </div>
   );
 }
